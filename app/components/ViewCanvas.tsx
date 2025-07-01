@@ -1,9 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { SodaCan } from "./SodaCan";
-import { Environment, Float } from "@react-three/drei";
-import FloatingCan from "./FloatingCan";
+import { View } from "@react-three/drei";
 
 type Props = {};
 
@@ -26,8 +24,7 @@ export default function ViewCanvas({}: Props) {
       dpr={[1, 1.5]}
       gl={{ antialias: true }}
     >
-      <FloatingCan />
-      <Environment files="/hdr/lobby.hdr" environmentIntensity={1.5} />
+      <View.Port />
     </Canvas>
   );
 }
