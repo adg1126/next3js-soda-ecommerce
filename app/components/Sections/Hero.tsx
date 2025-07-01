@@ -117,7 +117,7 @@ export default function Hero() {
                 />
               </div>
             </div>
-            <div className="relative h-screen w-[130%]">
+            <div className="relative h-screen w-[130%] md:hidden">
               <Image alt="all cans" src="/pictures/all-cans-bunched.png" fill />
             </div>
           </div>
