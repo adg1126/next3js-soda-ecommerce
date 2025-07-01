@@ -1,6 +1,8 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
+import { SodaCan } from "./SodaCan";
+import { Environment, Float } from "@react-three/drei";
 
 type Props = {};
 
@@ -23,12 +25,15 @@ export default function ViewCanvas({}: Props) {
       dpr={[1, 1.5]}
       gl={{ antialias: true }}
     >
-      <mesh rotation={[0.5, 0.5, 0]} position={[1, 0, 0]}>
-        <boxGeometry />
-        <meshStandardMaterial color={"red"} />
-      </mesh>
-      <ambientLight intensity={2} />
-      <spotLight intensity={3} position={[1, 1, 1]} />
+      <Float
+        speed={1} // Animation speed, defaults to 1
+        rotationIntensity={1} // XYZ rotation intensity, defaults to 1
+        floatIntensity={1} // Up/down floating intensity, defaults to 1
+        floatingRange={[-0.1, 0.1]} // Range of floating, defaults to [-0.1, 0.1]
+      >
+        <SodaCan />
+      </Float>
+      <Environment files="/hdr/lobby.hdr" environmentIntensity={1.5} />
     </Canvas>
   );
 }
