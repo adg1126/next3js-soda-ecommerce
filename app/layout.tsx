@@ -28,8 +28,10 @@ export default function RootLayout({
       </head>
       <body className="overflow-x-hidden bg-yellow-300">
         <Header />
-        {children}
-        <ViewCanvas />
+        <main>
+          {children}
+          <ViewCanvas />
+        </main>
       </body>
     </html>
   );
