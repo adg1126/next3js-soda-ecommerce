@@ -8,7 +8,7 @@ import ButtonLink from "../../components/ButtonLink";
 import TextSplitter from "../../components/TextSplitter";
 import Section from "../Section";
 import { View } from "@react-three/drei";
-import Scene from "../Scene";
+import Scene from "./Scene";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
