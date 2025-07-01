@@ -103,11 +103,9 @@ export default function Hero() {
               />
             </div>
           </div>
+
           <div className="text-side relative z-[80] grid h-screen items-center gap-4 md:grid-cols-2">
-            <div className="w-full md:hidden">
-              <Image alt="all cans" src="/pictures/all-cans-bunched.png" fill />
-            </div>
-            <div>
+            <div className="w-auto">
               <h2 className="text-side-heading text-balance text-6xl font-black uppercase text-sky-950 lg:text-8xl">
                 <TextSplitter text="try all five flavors" />
               </h2>
@@ -118,6 +116,9 @@ export default function Hero() {
                   Try all ive flavors and find your favorite!"
                 />
               </div>
+            </div>
+            <div className="relative h-screen w-[130%]">
+              <Image alt="all cans" src="/pictures/all-cans-bunched.png" fill />
             </div>
           </div>
         </div>
