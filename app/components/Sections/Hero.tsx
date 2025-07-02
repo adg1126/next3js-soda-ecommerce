@@ -8,8 +8,8 @@ import ButtonLink from "../../components/ButtonLink";
 import TextSplitter from "../../components/TextSplitter";
 import Section from "../Section";
 import { View } from "@react-three/drei";
-import Scene from "./Scene";
-import { Bubbles } from "./Bubbles";
+import Scene from "../Scene";
+import { Bubbles } from "../Bubbles";
 import { useStore } from "@/hooks/useStore";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
