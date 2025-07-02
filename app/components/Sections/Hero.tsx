@@ -10,75 +10,83 @@ import Section from "../Section";
 import { View } from "@react-three/drei";
 import Scene from "./Scene";
 import { Bubbles } from "./Bubbles";
+import { useStore } from "@/hooks/useStore";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Hero() {
-  useGSAP(() => {
-    const introTL = gsap.timeline();
+  const ready = useStore((state) => state.ready);
 
-    introTL
-      .set(".hero", { opacity: 1 })
-      .from(".hero-header-word", {
-        scale: 3,
-        opacity: 0,
-        easy: "power4.in",
-        delay: 0.3,
-        stagger: 1,
-      })
-      .from(
-        ".hero-subheading",
-        {
+  useGSAP(
+    () => {
+      if (!ready) return;
+
+      const introTL = gsap.timeline();
+
+      introTL
+        .set(".hero", { opacity: 1 })
+        .from(".hero-header-word", {
+          scale: 3,
           opacity: 0,
-          y: 30,
+          easy: "power4.in",
+          delay: 0.3,
+          stagger: 1,
+        })
+        .from(
+          ".hero-subheading",
+          {
+            opacity: 0,
+            y: 30,
+          },
+          "+=0.8",
+        )
+        .from(".hero-body", {
+          opacity: 0,
+          y: 10,
+        })
+        .from(".hero-button", {
+          opacity: 0,
+          y: 10,
+          duration: 0.6,
+        });
+
+      const scrollTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1.5,
+          // markers: true,
         },
-        "+=0.8",
-      )
-      .from(".hero-body", {
-        opacity: 0,
-        y: 10,
-      })
-      .from(".hero-button", {
-        opacity: 0,
-        y: 10,
-        duration: 0.6,
       });
 
-    const scrollTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1.5,
-        // markers: true,
-      },
-    });
-
-    scrollTL
-      .fromTo(
-        "body",
-        {
-          backgroundColor: "#FDE047",
-        },
-        {
-          backgroundColor: "#D9F99D",
-          overwrite: "auto",
-        },
-        1,
-      )
-      .from(".text-side-heading .split-char", {
-        scale: 1.3,
-        y: 40,
-        rotate: -25,
-        stagger: 0.1,
-        ease: "back.out(3)",
-        duration: 0.5,
-      })
-      .from(".text-side-body", {
-        y: 20,
-        opacity: 0,
-      });
-  });
+      scrollTL
+        .fromTo(
+          "body",
+          {
+            backgroundColor: "#FDE047",
+          },
+          {
+            backgroundColor: "#D9F99D",
+            overwrite: "auto",
+          },
+          1,
+        )
+        .from(".text-side-heading .split-char", {
+          scale: 1.3,
+          y: 40,
+          rotate: -25,
+          stagger: 0.1,
+          ease: "back.out(3)",
+          duration: 0.5,
+        })
+        .from(".text-side-body", {
+          y: 20,
+          opacity: 0,
+        });
+    },
+    { dependencies: [ready] },
+  );
 
   return (
     <Section className="hero opacity-0">
