@@ -4,11 +4,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Image from "next/image";
-import ButtonLink from "../../components/ButtonLink";
-import TextSplitter from "../../components/TextSplitter";
+import ButtonLink from "../ButtonLink";
+import TextSplitter from "../TextSplitter";
 import Section from "../Section";
 import { View } from "@react-three/drei";
-import Scene from "../Scene";
+import Scene from "./Scene";
 import { Bubbles } from "../Bubbles";
 import { useStore } from "@/hooks/useStore";
 import { useMediaQuery } from "@/hooks/useMediaQuery";

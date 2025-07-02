@@ -1,7 +1,7 @@
 "use client";
 
 import { Environment } from "@react-three/drei";
-import FloatingCan from "./FloatingCan";
+import FloatingCan from "../FloatingCan";
 import { useRef } from "react";
 import { Group } from "three";
 
