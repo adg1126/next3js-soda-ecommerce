@@ -9,6 +9,7 @@ import TextSplitter from "../../components/TextSplitter";
 import Section from "../Section";
 import { View } from "@react-three/drei";
 import Scene from "./Scene";
+import { Bubbles } from "./Bubbles";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -83,6 +84,7 @@ export default function Hero() {
     <Section className="hero opacity-0">
       <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
         <Scene />
+        <Bubbles count={300} speed={2} repeat={true} />
       </View>
 
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center">
