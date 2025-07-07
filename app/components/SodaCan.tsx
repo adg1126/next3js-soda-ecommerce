@@ -5,7 +5,7 @@ import * as THREE from "three";
 
 useGLTF.preload("/Soda-can.gltf");
 
-const flavorTextures = {
+export const flavorTextures = {
   lemonLime: "/labels/lemon-lime.png",
   grape: "/labels/grape.png",
   blackCherry: "/labels/cherry.png",
